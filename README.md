@@ -1,16 +1,50 @@
-# share_via_application
+# URL LAUNCHER
 
-A new Flutter project.
+### A simple flutter example to open URL
 
-## Getting Started
+## Add Dependency
+```bash
+$flutter pub add url_launcher
+```
 
-This project is a starting point for a Flutter application.
+## Configuration on IOS
+Add the following code inside info.plist
+```code
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>sms</string>
+  <string>tel</string>
+</array>
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Configuration on Android
+Add the following code inside AndroidManifest.xml
+```code
+<uses-permission android:name="android.permission.INTERNET" />
+<queries>
+  <!-- If your app checks for SMS support -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="sms" />
+  </intent>
+  <!-- If your app checks for call support -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="tel" />
+  </intent>
+</queries>
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Run on WEB
+```bash
+$flutter run -d chrome
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Result
+<p>
+<img src="https://github.com/Vishwa-Karthik/Flutter-URL-Launcher/blob/master/img.jpg" height=400 width=200 />
+</p>
+
+## Refernce
+Pub.dev: [url_launcher](https://pub.dev/packages/url_launcher)
+
